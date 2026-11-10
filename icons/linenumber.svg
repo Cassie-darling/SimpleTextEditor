@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" stroke="#37474f" stroke-width="1.5"/>
+  <path d="M9 3.5v17" stroke="#37474f" stroke-width="1.3"/>
+  <text x="6.2" y="9" font-family="Arial" font-size="5" text-anchor="middle" fill="#1565c0">1</text>
+  <text x="6.2" y="14" font-family="Arial" font-size="5" text-anchor="middle" fill="#1565c0">2</text>
+  <text x="6.2" y="19" font-family="Arial" font-size="5" text-anchor="middle" fill="#1565c0">3</text>
+  <path d="M11.5 8h6M11.5 12h6M11.5 16h4" stroke="#37474f" stroke-width="1.3" stroke-linecap="round"/>
+</svg>

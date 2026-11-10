@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="app.svg">icons/app.svg</file>
+        <file alias="new.svg">icons/new.svg</file>
+        <file alias="newwindow.svg">icons/newwindow.svg</file>
+        <file alias="open.svg">icons/open.svg</file>
+        <file alias="save.svg">icons/save.svg</file>
+        <file alias="saveas.svg">icons/saveas.svg</file>
+        <file alias="exit.svg">icons/exit.svg</file>
+        <file alias="undo.svg">icons/undo.svg</file>
+        <file alias="redo.svg">icons/redo.svg</file>
+        <file alias="cut.svg">icons/cut.svg</file>
+        <file alias="copy.svg">icons/copy.svg</file>
+        <file alias="paste.svg">icons/paste.svg</file>
+        <file alias="find.svg">icons/find.svg</file>
+        <file alias="replace.svg">icons/replace.svg</file>
+        <file alias="font.svg">icons/font.svg</file>
+        <file alias="fontcolor.svg">icons/fontcolor.svg</file>
+        <file alias="background.svg">icons/background.svg</file>
+        <file alias="wrap.svg">icons/wrap.svg</file>
+        <file alias="linenumber.svg">icons/linenumber.svg</file>
+        <file alias="toolbar.svg">icons/toolbar.svg</file>
+        <file alias="statusbar.svg">icons/statusbar.svg</file>
+        <file alias="about.svg">icons/about.svg</file>
+    </qresource>
+</RCC>

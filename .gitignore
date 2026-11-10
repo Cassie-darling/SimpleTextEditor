@@ -1,0 +1,35 @@
+# Qt Creator 用户配置
+*.pro.user
+*.pro.user.*
+
+# 构建目录与中间文件
+build/
+build-*/
+debug/
+release/
+*.o
+*.obj
+*.res
+moc_*.cpp
+moc_*.h
+moc_predefs.h
+qrc_*.cpp
+ui_*.h
+*.moc
+*.pdb
+.object
+Makefile
+Makefile.*
+
+# 可执行文件与部署产物
+*.exe
+*.dll
+*.a
+*.so
+*.dylib
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.qtcreator/
