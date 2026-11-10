@@ -15,7 +15,7 @@
     <normaloff>:/icons/app.svg</normaloff>:/icons/app.svg</iconset>
   </property>
   <property name="windowTitle">
-   <string>未命名[*] - 简单文本编辑器</string>
+   <string>[*]新建文本文件 - 简单文本编辑器</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -89,7 +89,7 @@
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>视图(&amp;V)</string>
+     <string>查看(&amp;V)</string>
     </property>
     <addaction name="actToolBar"/>
     <addaction name="actStatusBar"/>

@@ -80,17 +80,23 @@ MainWindow::MainWindow(QWidget *parent)
     // 关闭时自动释放（支持“新建窗口”打开多个编辑器窗口）
     setAttribute(Qt::WA_DeleteOnClose);
 
-    // 状态栏信息标签
-    m_positionLabel = new QLabel(this);
-    m_charCountLabel = new QLabel(this);
-    m_stateLabel = new QLabel(this);
-    m_positionLabel->setMinimumWidth(140);
-    m_charCountLabel->setMinimumWidth(110);
-    m_stateLabel->setMinimumWidth(70);
+    // 状态栏信息标签（与实验参考界面一致：length / lines / Ln / Col）
+    m_lengthLabel = new QLabel(this);
+    m_linesLabel = new QLabel(this);
+    m_lnLabel = new QLabel(this);
+    m_colLabel = new QLabel(this);
+    m_authorLabel = new QLabel(tr("许龙奇"), this);
+    m_lengthLabel->setMinimumWidth(90);
+    m_linesLabel->setMinimumWidth(80);
+    m_lnLabel->setMinimumWidth(70);
+    m_colLabel->setMinimumWidth(70);
+    m_authorLabel->setMinimumWidth(70);
     // 放在右侧常驻区域，避免被 showMessage 的临时提示覆盖
-    statusBar()->addPermanentWidget(m_positionLabel);
-    statusBar()->addPermanentWidget(m_charCountLabel);
-    statusBar()->addPermanentWidget(m_stateLabel);
+    statusBar()->addPermanentWidget(m_lengthLabel);
+    statusBar()->addPermanentWidget(m_linesLabel);
+    statusBar()->addPermanentWidget(m_lnLabel);
+    statusBar()->addPermanentWidget(m_colLabel);
+    statusBar()->addPermanentWidget(m_authorLabel);
 
     // 查找、替换、关于对话框（非模态，便于连续操作）
     m_findDialog = new FindDialog(this);
@@ -143,6 +149,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->editor, &QPlainTextEdit::copyAvailable, this, &MainWindow::updateCopyActions);
     connect(ui->editor, &QPlainTextEdit::cursorPositionChanged, this, &MainWindow::updateStatusInfo);
     connect(ui->editor, &QPlainTextEdit::textChanged, this, &MainWindow::updateStatusInfo);
+    connect(ui->editor, &QPlainTextEdit::blockCountChanged, this, &MainWindow::updateStatusInfo);
 
     // 剪贴板内容变化时刷新“粘贴”的使能状态
     connect(QGuiApplication::clipboard(), &QClipboard::dataChanged,
@@ -591,18 +598,17 @@ void MainWindow::autoSave()
 
 void MainWindow::updateWindowTitle()
 {
-    setWindowTitle(tr("%1[*] - 简单文本编辑器").arg(displayName()));
+    setWindowTitle(tr("[*]%1 - 简单文本编辑器").arg(displayName()));
     setWindowModified(ui->editor->document()->isModified());
 }
 
 void MainWindow::updateStatusInfo()
 {
     const QTextCursor cursor = ui->editor->textCursor();
-    m_positionLabel->setText(tr("行 %1，列 %2")
-                                 .arg(cursor.blockNumber() + 1)
-                                 .arg(cursor.positionInBlock() + 1));
-    m_charCountLabel->setText(tr("字符数：%1").arg(ui->editor->document()->characterCount() - 1));
-    m_stateLabel->setText(ui->editor->document()->isModified() ? tr("已修改") : tr("就绪"));
+    m_lengthLabel->setText(tr("length: %1").arg(ui->editor->document()->characterCount() - 1));
+    m_linesLabel->setText(tr("lines: %1").arg(ui->editor->blockCount()));
+    m_lnLabel->setText(tr("Ln: %1").arg(cursor.blockNumber() + 1));
+    m_colLabel->setText(tr("Col: %1").arg(cursor.positionInBlock() + 1));
 }
 
 void MainWindow::updateCopyActions(bool hasSelection)
@@ -618,5 +624,5 @@ void MainWindow::updatePasteAction()
 
 QString MainWindow::displayName() const
 {
-    return m_fileName.isEmpty() ? tr("未命名") : QFileInfo(m_fileName).fileName();
+    return m_fileName.isEmpty() ? tr("新建文本文件") : QFileInfo(m_fileName).fileName();
 }

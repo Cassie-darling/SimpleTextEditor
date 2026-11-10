@@ -1,6 +1,7 @@
 #include "codeeditor.h"
 
 #include <QEvent>
+#include <QColor>
 #include <QPaintEvent>
 #include <QPainter>
 #include <QResizeEvent>
@@ -116,8 +117,8 @@ void CodeEditor::highlightCurrentLine()
         return;
 
     QTextEdit::ExtraSelection selection;
-    // 跟随背景色变化：取背景色的略深版本
-    selection.format.setBackground(palette().base().color().darker(106));
+    // 当前行高亮：浅黄色（与实验参考界面一致）
+    selection.format.setBackground(QColor(255, 255, 190));
     selection.format.setProperty(QTextFormat::FullWidthSelection, true);
     selection.cursor = textCursor();
     selection.cursor.clearSelection();

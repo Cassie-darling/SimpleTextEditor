@@ -88,9 +88,11 @@ private:
     FindDialog *m_findDialog = nullptr;
     ReplaceDialog *m_replaceDialog = nullptr;
     AboutDialog *m_aboutDialog = nullptr;
-    QLabel *m_positionLabel = nullptr;
-    QLabel *m_charCountLabel = nullptr;
-    QLabel *m_stateLabel = nullptr;
+    QLabel *m_lengthLabel = nullptr;
+    QLabel *m_linesLabel = nullptr;
+    QLabel *m_lnLabel = nullptr;
+    QLabel *m_colLabel = nullptr;
+    QLabel *m_authorLabel = nullptr;
     QTimer *m_autoSaveTimer = nullptr;
 };
 
